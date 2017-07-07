@@ -64,7 +64,7 @@ class Information extends Component {
         <li><a target="_blank" href={DOCUMENTATION_URL}>Documentation</a>: core language, the setup, etc </li>
         <li><Link to={{ pathname: "/definitions" }} activeClassName="active" target="_blank">Definitions</Link>: existing definitions</li>
         <li><a target="_blank" href={SLACK_SIGNUP_URL}> Slack</a> (<a target="_blank" href="https://shrdlurn.signup.team/">signup</a>): signup and join to submit more structures and win prizes</li>
-        <li><a target="_blank" href="https://github.com/sidaw/shrdlurn/blob/master/Voxelurn.md#defined-by-users">Examples</a>: actions and structures defined by users</li>
+        <li><a target="_blank" href="https://github.com/The-Dawwctor/shrdlurn-robot/blob/master/Voxelurn.md#defined-by-users">Examples</a>: actions and structures defined by users</li>
         <li><a target="_blank" href="https://arxiv.org/abs/1704.06956">Our paper</a></li>
         </ul>
         </div></div>

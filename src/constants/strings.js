@@ -11,7 +11,7 @@ export const SLACK_OAUTH_URL = "https://slack.com/oauth/authorize?scope=identity
 export const DOCUMENTATION_URL = "https://github.com/The-Dawwctor/shrdlurn-robot/blob/master/Voxelurn.md"
 
 /* Meta information */
-export const DEFAULT_SESSIONID = "dawwctor"
+export const DEFAULT_SESSIONID = "deadbeef"
 
 /* Control strings */
 export const STATUS = {

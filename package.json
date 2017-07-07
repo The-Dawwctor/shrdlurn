@@ -1,6 +1,6 @@
 {
   "name": "shrdlurn-robot",
-  "description": "Teaching Robots To Understand Natural Language",
+  "description": "Controlling Robots Through Natural Language",
   "repository": {
     "type": "git",
     "url": "https://github.com/The-Dawwctor/shrdlurn-robot.git"
