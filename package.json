@@ -1,21 +1,21 @@
 {
-  "name": "shrdlurn",
-  "description": "teach the computer your language",
+  "name": "shrdlurn-robot",
+  "description": "Teaching Robots To Understand Natural Language",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sidaw/shrdlurn.git"
+    "url": "https://github.com/The-Dawwctor/shrdlurn-robot.git"
   },
-  "author": "Sida Wang <sidaw@cs.stanford.edu> and Sam Ginn <samginn@cs.stanford.edu>",
+  "author": "James Li <dawwctor@stanford.edu>",
   "license": "MIT",
-  "homepage": "http://www.voxelurn.com",
+  "homepage": "https://the-dawwctor.github.io/shrdlurn-robot/",
   "devDependencies": {
     "gh-pages": "^0.12.0",
     "react-addons-perf": "^15.4.2",
     "react-scripts": "0.9.0"
   },
   "dependencies": {
-    "color-name": "^1.1.2",
     "classnames": "^2.2.5",
+    "color-name": "^1.1.2",
     "deep-equal": "^1.0.1",
     "hashids": "^1.1.1",
     "isomer": "^0.2.6",
@@ -42,8 +42,7 @@
     "build:local": "REACT_APP_SEMPRE_SERVER=http://localhost:8410 REACT_APP_COMMUNITY_SERVER=http://localhost:8403 NODE_PATH=./src react-scripts build",
     "test": "NODE_PATH=./src react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages --dist build --repo http://www.github.com/sidaw/voxelurn --remove static",
-    "deploy:local": "gh-pages --dist build --repo http://www.github.com/sidaw/voxelurn-local --remove static",
+    "deploy": "gh-pages --dist build --repo http://www.github.com/The-Dawwctor/shrdlurn-robot/ --remove static",
     "deploy:clean": "rm -rf node_modules/gh-pages/.cache"
   },
   "eslintConfig": {
