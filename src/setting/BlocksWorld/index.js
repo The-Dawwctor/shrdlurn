@@ -100,20 +100,6 @@ class Blocks extends React.Component {
       return p;
     })(this.config);
 
-    // this.colorMap = {
-    //   Red: [209, 0, 0],
-    //   Orange: [255, 102, 34],
-    //   Yellow: [255, 218, 33],
-    //   Green: [51, 221, 0],
-    //   Blue: [17, 51, 204],
-    //   Black: [10, 10, 10],
-    //   White: [255, 255, 240],
-    //   Pink: [255, 20, 147],
-    //   Brown: [139, 69, 19],
-    //   Anchor: [0, 160, 176],
-    //   Fake: [255, 255, 255],
-    //   Gray: [144, 144, 144]
-    // }
     this.colorMap = cssColors;
     this.colorMap['fake'] = [255, 255, 255];
 
@@ -154,7 +140,7 @@ class Blocks extends React.Component {
     // scale is the scaling down required so the point appears in canvas
     // it satisfies: scale * (x - originX) + originX \in [0, canvasWidth]
     // I assume origin is in the box
-    // margin is a bit tricky, the exactly way requires multiple calls to translate
+    // margin is a bit tricky, the exact way requires multiple calls to translate
 
     const Y0 = originY;
     const X0 = originX;

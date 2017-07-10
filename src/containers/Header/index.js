@@ -7,7 +7,7 @@ import "./styles.css"
 const Header = ({ query, signedIn, sessionId, email, dispatch }) => (
   <div className="Header">
     <div className="Header-logo">
-      <span>Natural Robot Control</span>
+      <span>NLP Robot Control</span>
       <span className="Header-sublogo">a Stanford Robotics/NLP project</span>
     </div>
     <div className="Header-nav">
