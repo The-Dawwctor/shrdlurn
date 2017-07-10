@@ -1,4 +1,6 @@
-# Voxelurn
+# Natural Robot Control (NRC)
+
+(TODO: Change once details of NRC implementation are designed/programmed so this isn't an obsolete Voxelurn.md)
 
 ## Core language
 The system always understands a core language, which is just a programming language designed to interpolate well with natural language.
@@ -73,15 +75,15 @@ green sphere
 
 ## About
 
-Voxelurn is a command interface for building voxel structures.
+NRC is a command interface for controlling robots.
 It is an experimental platform for developing techniques
 allowing computers to parse a naturalized programming language.
 Our goal is to allow people access
 to the power of programming languages
 without conforming to their uncompromising syntax.
-Voxlurn does this by learning from its user community interactively starting from a precise programming language.
+NRC does this by learning from its user community interactively starting from a precise programming language.
 
 For technical details:
 * [our paper](https://arxiv.org/abs/1704.06956)
-* the grammars of the [core language](https://github.com/sidaw/sempre-interactive/blob/master/interactive/dal.grammar) and the [voxelurn specific language](https://github.com/sidaw/sempre-interactive/blob/master/interactive/voxelurn.grammar)
-* the [server side code](https://github.com/sidaw/sempre-interactive/tree/2.3-codalab)
+* the grammars of the [core language](https://github.com/The-Dawwctor/sempre-robot/blob/master/interactive/dal.grammar) and the [NRC specific language](https://github.com/The-Dawwctor/sempre-robot/blob/master/interactive/robot.grammar)
+* the [server side code](https://github.com/The-Dawwctor/sempre-robot)

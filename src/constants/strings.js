@@ -5,7 +5,7 @@ export const SEMPRE_SERVER_URL = process.env.REACT_APP_SEMPRE_SERVER ? process.e
 export const COMMUNITY_SERVER_URL = process.env.REACT_APP_COMMUNITY_SERVER ? process.env.REACT_APP_COMMUNITY_SERVER : DEFAULT_COMMUNITY_SERVER_URL
 
 /* Header URLs */
-export const DOCUMENTATION_URL = "https://github.com/The-Dawwctor/shrdlurn-robot/blob/master/Voxelurn.md"
+export const DOCUMENTATION_URL = "https://github.com/The-Dawwctor/shrdlurn-robot/blob/master/NRC.md"
 
 /* Meta information */
 export const DEFAULT_SESSIONID = "deadbeef"
