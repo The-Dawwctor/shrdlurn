@@ -40,35 +40,3 @@ export function genSid() {
   const hashids = new Hashids("our cool SHRDLURN salt for sids")
   return hashids.encode(rand10000(), rand10000())
 }
-
-function drawImage(canvas, ctx, img, width, height) {
-  ctx.drawImage(img, 0, 0, width, height)
-  return canvas.toDataURL("image/png")
-}
-
-export function resizePNG(dataImg, width, height) {
-  const data = document.querySelector("#blocksCanvas").toDataURL("image/png")
-
-  // create an off-screen canvas
-  const canvas = document.createElement('canvas')
-  const ctx = canvas.getContext('2d')
-
-  // set its dimension to target size
-  canvas.width = width;
-  canvas.height = height;
-
-  // draw source image into the off-screen canvas:
-  const img = new Image()
-  img.src = data
-
-  // encode image to data-uri with base64 version of compressed image sync
-  return new Promise((resolve, reject) => {
-    if (img.complete) {
-      resolve(drawImage(canvas, ctx, img, width, height))
-    }
-
-    img.onload = () => {
-      resolve(drawImage(canvas, ctx, img, width, height))
-    }
-  })
-}

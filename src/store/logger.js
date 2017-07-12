@@ -5,9 +5,6 @@ const initialState = {
     structs: "loading",
     lastValue: "",
     utterances: {},
-    topBuilders: [],
-    score: 0,
-    user_structs: [],
     sid: "1",
     definitions: {}
 }
@@ -39,8 +36,6 @@ export default function reducer(state = initialState, action = {}) {
     switch (action.type) {
     case Constants.OPEN_LOGGING_SOCKET:
 	return { ...state, socket: action.socket }
-    case Constants.SHARED_STRUCT:
-	return { ...state, lastValue: action.value }
     case Constants.NEW_ACCEPT:
 	const prevUtterancesNA = state.utterances.hasOwnProperty(action.uid) ? state.utterances[action.uid] : []
 	const newUttsNA = { ...state.utterances, [action.uid]: [{ type: "accept", msg: { query: action.query }, timestamp: action.timestamp }, ...prevUtterancesNA] }
@@ -49,16 +44,10 @@ export default function reducer(state = initialState, action = {}) {
 	const prevUtterancesND = state.utterances.hasOwnProperty(action.uid) ? state.utterances[action.uid] : []
 	const newUttsND = { ...state.utterances, [action.uid]: [{ type: "define", msg: { defineAs: action.defined }, timestamp: action.timestamp }, ...prevUtterancesND] }
 	return { ...state, utterances: pruneUtts(newUttsND) }
-    case Constants.NEW_UPVOTE:
-	const modifiedStructs = state.structs.slice()
-	const idx = modifiedStructs.findIndex(m => m.id === action.id && m.uid === action.uid)
-	modifiedStructs[idx].upvotes.push(action.up)
-	modifiedStructs[idx].score = action.score
-	return { ...state, structs: modifiedStructs }
     case Constants.NEW_STRUCT:
 	const value = JSON.parse(action.struct.value)
 	const recipe = action.struct.recipe
-	const newStruct = { uid: action.uid, id: action.id, score: action.score, upvotes: action.upvotes, image: action.image, value: value, recipe: recipe }
+	const newStruct = { uid: action.uid, id: action.id, score: action.score, image: action.image, value: value, recipe: recipe }
 
 	if (state.structs === "loading") {
             return { ...state, structs: [newStruct] }
@@ -77,12 +66,6 @@ export default function reducer(state = initialState, action = {}) {
 	return { ...state, structs: action.structs.map(s => ({ ...s, value: JSON.parse(s.struct.value), recipe: s.struct.recipe })) }
     case Constants.NEW_UTTERANCES:
 	return { ...state, utterances: { ...state.utterances, [action.uid]: action.utterances.map(u => JSON.parse(u)) } }
-    case Constants.LOAD_TOP_BUILDERS:
-	return { ...state, topBuilders: action.topBuilders }
-    case Constants.USER_SCORE:
-	return { ...state, score: action.score }
-    case Constants.USER_STRUCTS_COUNT:
-	return { ...state, user_structs: action.structs }
     case Constants.SET_STRUCTURE_ID:
 	return { ...state, sid: action.sid }
     case Constants.LOAD_DEFINITIONS:

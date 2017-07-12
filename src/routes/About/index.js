@@ -1,15 +1,10 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import Actions from "actions/logger"
 import { Link } from "react-router"
 import "./styles.css"
 import { DOCUMENTATION_URL } from "constants/strings"
 
 class Information extends Component {
-    componentDidMount() {
-	this.props.dispatch(Actions.joinCommunity())
-    }
-    
     render() {
 	return (
 		<div className="About">
@@ -45,7 +40,6 @@ class Information extends Component {
 const mapStateToProps = (state) => ({
     structs: state.logger.structs,
     utterances: state.logger.utterances,
-    topBuilders: state.logger.topBuilders
 })
 
 export default connect(mapStateToProps)(Information)
