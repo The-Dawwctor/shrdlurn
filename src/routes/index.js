@@ -9,7 +9,6 @@ const Routes = ({ history }) => (
   <Router history={history}>
     <Route path="/" component={Layout}>
       <IndexRedirect to="about" />
-
       <Route path="build" component={Build} />
       <Route path="help" component={Help} />
       <Route path="about" component={About} />

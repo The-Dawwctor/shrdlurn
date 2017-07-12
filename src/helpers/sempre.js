@@ -1,102 +1,22 @@
 import { SEMPRE_SERVER_URL } from "constants/strings"
 
-// function cleanValue(valueString) {
-//   if (!valueString) return "";
-//
-//   return valueString
-//     .replace(/edu.stanford.nlp.sempre.cubeworld.CubeWorld./g, "")
-//     .replace(/edu.stanford.nlp.sempre.cubeworld..*\./g, "")
-//     .replace(/edu.stanford.nlp.sempre./g, "")
-//     .replace(/context:root/g, "")
-//     .toLowerCase();
-// }
-
-// function formatFormula(formula) {
-//   if (typeof formula === "undefined") return "";
-//   if (typeof formula === "string") return cleanValue(formula);
-//
-//   const head = formula[0];
-//   let str = "";
-//   if (head === "call") {
-//     const op = formatFormula(formula[1]);
-//
-//     if (op === ".concat") {
-//       str = `${formatFormula(formula[2])} ${formatFormula(formula[3])}`;
-//     } else if (op === ".tostring") {
-//       str = formatFormula(formula[2]);
-//     } else {
-//       // Default behavior just exposes the function call
-//       const arglist = [];
-//       for (let i = -2; i < formula.length; i++) {
-//         arglist.push(formatFormula(formula[i]));
-//       }
-//       str = `${op}(${arglist.join(",")})`;
-//     }
-//   } else if (head === "number") {
-//     str = formula[1];
-//   } else if (head === "name" || head === "string") {
-//     str = cleanValue(formula[1]);
-//   } else {
-//     str = cleanValue(formula[0]);
-//   }
-//   return str;
-// }
-
 function formatValue(value) {
   if (typeof value === "undefined") return "";
   // "[[5,5,1,\"Blue\",[]],[5,5,2,\"Red\",[]],[5,4,2,\"Green\",[]]]"
   const valueArray = JSON.parse(value);
 
-  // const valueArray = [[1, 1, 0, "Red", []], [1, 1, 1, "Orange", []]];
+  // const valueArray = [[1, 1, 0, "Red", false, []], [1, 1, 1, "Orange", true, []]];
 
-  return valueArray.map((c) => (
-    {
-      x: c[0],
-      y: c[1],
-      z: c[2],
-      color: c[3],
-      names: c[4],
+    return valueArray.map((c) => (
+	{
+	x: c[0],
+	y: c[1],
+	z: c[2],
+	color: c[3],
+	attract: c[4],
+	names: c[5],
     }
   ));
-
-  // const head = value[0];
-  // let str = "";
-  // switch (head) {
-  //   case "list": {
-  //     const elements = [];
-  //     for (let i = 1; i < value.length; i++) {
-  //       elements.push(this.formatValue(value[i], value.length));
-  //     }
-  //     str = `[${elements.join(", ")}]`;
-  //     break;
-  //   }
-  //   case "table": {
-  //     const headers = value[1];
-  //     for (let j = 0; j < headers.length; j++) {
-  //       str += `{${value[1][j]}\t `;
-  //     }
-  //     str += "\n";
-  //     for (let i = 2; i < value.length; i++) {
-  //       for (let j = 0; j < headers.length; j++) {
-  //         str += `${this.formatValue(value[i][j], value.length)}\t `;
-  //       }
-  //       str += "\n";
-  //     }
-  //     break;
-  //   }
-  //   case "number": {
-  //     str = this.cleanValue(value[1]);
-  //     break;
-  //   }
-  //   case "name": {
-  //     str = this.cleanValue(value[1]);
-  //     break;
-  //   }
-  //   default: {
-  //     str = this.cleanValue(value[1]);
-  //   }
-  // }
-  // return str;
 }
 
 function combine(vsTmp, v) {
@@ -172,27 +92,6 @@ export function parseSEMPRE(valid) {
   listqadedup.sort((a, b) => b.score - a.score + 1e-3 * (a.rank - b.rank));
   return listqadedup;
 }
-
-// function sempreFormat(ques) {
-//   return ques.replace(/\+/g, " __+ ")
-//     .replace(/\(/g, " [ ")
-//     .replace(/\)/g, " ] ")
-//     .replace(/\+/g, " + ")
-//     .replace(/-/g, " - ")
-//     .replace(/\*/g, " * ")
-//     .replace(/\//g, " / ");
-// }
-//
-// export function formatQuery(ques) {
-//   const sanity = ques.replace(/(\+|-|%|;)/g, " $1 ")
-//     .replace(/(\(|\))/g, "") // disables commands
-//     .replace(/"/g, "")
-//     .replace(/=/g, "= ")
-//     .replace(/(>|<)/g, " $1")
-//     .replace(/(>|<)(?!=)/g, "$1 ")
-//     .replace(/([^><])=/g, "$1 =");
-//   return sanity;
-// }
 
 export function SEMPREquery(cmds, callback) {
   const cmdstr = []

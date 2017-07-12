@@ -6,7 +6,7 @@ const Help = () => (
   <div className="Help">
     <h2>Help</h2>
     <hr/>
-    <p>Here are some simple examples to help you out in building your structures. Need more help? Join our Slack channel and ask questions! We would be happy to assist (link is in the bottom bar below).</p>
+    <p>Here are some simple examples to help you out in building your structures..</p>
     <ul>
       <li>
         <strong>Directions:</strong>
