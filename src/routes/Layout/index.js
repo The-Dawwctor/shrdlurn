@@ -15,7 +15,7 @@ import "./styles.css"
 
 class Layout extends Component {
   componentDidMount() {
-    /* Set the appropriate sessionId (either turker id or generated) */
+    /* Set the appropriate sessionId */
     this.props.dispatch(Actions.setSessionId())
 
     /* Get the logged in user if there is one */

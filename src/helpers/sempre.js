@@ -2,11 +2,7 @@ import { SEMPRE_SERVER_URL } from "constants/strings"
 
 function formatValue(value) {
   if (typeof value === "undefined") return "";
-  // "[[5,5,1,\"Blue\",[]],[5,5,2,\"Red\",[]],[5,4,2,\"Green\",[]]]"
   const valueArray = JSON.parse(value);
-
-  // const valueArray = [[1, 1, 0, "Red", false, []], [1, 1, 1, "Orange", true, []]];
-
     return valueArray.map((c) => (
 	{
 	x: c[0],

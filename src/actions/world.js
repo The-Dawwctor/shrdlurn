@@ -8,7 +8,6 @@ import { STATUS } from "constants/strings"
 
 function sendContext(history, current_history_idx, sessionId) {
   let contextCommand = "(:context)"
-
   if (history.length > 0) {
     const idx = current_history_idx >= 0 && current_history_idx < history.length ? current_history_idx : history.length - 1
     const currentState = history[idx].value

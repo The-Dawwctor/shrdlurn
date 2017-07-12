@@ -20,8 +20,7 @@ const Header = ({ query, signedIn, sessionId, email, dispatch }) => (
 )
 
 Header.propTypes = {
-  /* URL parameters in order to persist the query (e.g ?turkid=AMT_123) across
-   * route changes */
+  /* URL parameters in order to persist the query across route changes */
   query: PropTypes.object
 }
 

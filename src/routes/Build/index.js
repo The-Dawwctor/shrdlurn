@@ -1,14 +1,12 @@
 import React, { Component, PropTypes } from 'react'
 import Actions from "actions/world"
 import LoggerActions from "actions/logger"
-import UserActions from "actions/user"
 import { connect } from "react-redux"
 import Mousetrap from "mousetrap"
 import History from "containers/History"
-import Setting, { diff, equalityCheck } from "setting"
+import Setting, { diff } from "setting"
 import CommandBar from "containers/CommandBar"
 import { STATUS } from "constants/strings"
-import { genTarget } from "helpers/util"
 import StatusMsg from "components/StatusMsg"
 import WorldActions from "actions/world"
 
@@ -27,7 +25,7 @@ class Build extends Component {
     constructor(props) {
 	super(props)
 
-	this.state = { selectedResp: 0, targetIdx: -1, target: [], possSteps: 33, wivn: false }
+	this.state = { selectedResp: 0, possSteps: 33, wivn: false }
     }
 
     componentDidMount() {
@@ -36,14 +34,7 @@ class Build extends Component {
 	Mousetrap.bind("command+z", (e) => { e.preventDefault(); this.props.dispatch(Actions.undo()) })
 	Mousetrap.bind("command+shift+z", (e) => { e.preventDefault(); this.props.dispatch(Actions.redo()) })
 
-	/* If there is a ?taskid=N as a URL parameter, set the task as 'target',
-	 * otherwise, set a current structure id for the currently working sturct */
-	if (Object.keys(this.props.location.query).indexOf("taskid") !== -1) {
-	    this.props.dispatch(UserActions.setTask("target"))
-	    this.setTarget()
-	} else {
-	    this.props.dispatch(LoggerActions.setStructureId())
-	}
+	this.props.dispatch(LoggerActions.setStructureId())
     }
 
     // componentWillReceiveProps(nextProps) {
@@ -56,31 +47,12 @@ class Build extends Component {
 	/* Whenever there is a status change, reset the selected response */
 	if (prevProps.status !== this.props.status)
 	    this.setState({ selectedResp: 0 })
-
-	/* Check for win! */
-	if (this.props.task === "target" && this.props.history.length > 0 && equalityCheck(this.props.history[this.props.history.length - 1].value, this.state.target)) {
-	    /* WIN! */
-	    this.win()
-	} else if (this.state.win) {
-	    this.setState({ win: false })
-	}
-
-	/* Check to see if we need to set the target */
-	if (prevProps.task === "world" && this.props.task === "target")
-	    this.setTarget()
     }
 
     componentWillUnmount() {
 	/* Clean up the key undo+redo bindings */
 	Mousetrap.unbind("command+z")
 	Mousetrap.unbind("command+shift+z")
-    }
-
-    setTarget() {
-	const randomTarget = genTarget()
-	this.setState({ target: randomTarget[2], possSteps: randomTarget[1], targetIdx: randomTarget[0] })
-
-	this.props.dispatch(LoggerActions.log({ type: "start", msg: { targetIdx: randomTarget[0], target: randomTarget[2] } }))
     }
 
     handleQuery(query) {
@@ -102,18 +74,9 @@ class Build extends Component {
 		})
             break
 	case STATUS.ACCEPT:
-            /* Max steps check */
-            if (this.props.task === "target" && this.props.historyLen >= this.maxSteps()) {
-		alert("You've reached the maximum number of steps of " + this.maxSteps() + " , undo some steps in order to add more.")
-		this.setState({ selectedResp: 0 })
-		return
-            }
-
-            /* Otherwise, just accept normally */
             const r = this.props.dispatch(Actions.accept(query, this.state.selectedResp))
             if (r)
 		this.setState({ selectedResp: 0 })
-
             break
 	case STATUS.DEFINE:
             this.props.dispatch(Actions.define(this.props.defineN))
@@ -124,21 +87,6 @@ class Build extends Component {
 	default:
             console.log("uh oh... unknown status!", this.props.status)
             break
-	}
-    }
-
-    maxSteps() {
-	/* If this is a qualifier with a targer, there is a max steps */
-	if (this.props.task !== "target")
-	    return Infinity
-
-	return this.state.possSteps * 3
-    }
-
-    win() {
-	if (!this.state.win) {
-	    this.props.dispatch(LoggerActions.log({ type: "win", msg: { steps: this.props.history.length } }))
-	    this.setState({ win: true })
 	}
     }
 

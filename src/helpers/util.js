@@ -1,6 +1,4 @@
-import targets from "constants/targets"
 import Hashids from "hashids"
-import { getTurkHit } from "helpers/turk"
 
 export function setStore(name, value) {
   const jsonValue = JSON.stringify(value);
@@ -17,25 +15,6 @@ export function getStore(name, defaultValue = "") {
 
 export function resetStore() {
   localStorage.clear();
-}
-
-export function genTarget() {
-  const usedTargets = getStore("usedTargetsv1", []);
-  if (usedTargets.length === targets.length) {
-    alert("You've completed all targets! Resetting...");
-    setStore("usedTargetsv1", []);
-  }
-
-  let targetIdx = -1;
-  do {
-    targetIdx = Math.floor(Math.random() * targets.length);
-  } while (usedTargets.includes(targetIdx));
-
-  // turk override
-  const mhitid = getTurkHit();
-  if (mhitid != null) targetIdx = mhitid;
-
-  return [targetIdx, ...targets[targetIdx]];
 }
 
 export function getParameterByName(name, url) {
