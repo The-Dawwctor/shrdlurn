@@ -11,13 +11,10 @@ Directions:
 Extreme directions: `very top, very bot, very left ...`
 
 Colors:
-`red, orange, yellow, green, blue`
-`white, black, pink, brown`
-[any css colors](https://www.w3schools.com/cssref/css_colors.asp)
+`red, orange, yellow, green, blue, white, black, pink, brown`, and any [css colors](https://www.w3schools.com/cssref/css_colors.asp)
 
 Operators:
-`has, of, not, and, or`
-`+, -`
+`has, of, not, and, or, +, -`
 
 Sets: `all, none, this, previous, origin`
 
@@ -56,23 +53,6 @@ foreach [remove has row row of this]
 add red;  {select right; update color color of left}
 ```
 
-### Defined by users
-
-```
-add red place 3 x 5
-red cube size 3
-add green monster
-dancer
-add girl
-music box
-draw bottom green
-black 10x10x10 frame
-select left 9
-{cover};ship;smoke
-3 tall 3 wide red tower centered here
-green sphere
-```
-
 ## About
 
 NRC is a command interface for controlling robots.
@@ -84,6 +64,5 @@ without conforming to their uncompromising syntax.
 NRC does this by learning from its user community interactively starting from a precise programming language.
 
 For technical details:
-* [our paper](https://arxiv.org/abs/1704.06956)
 * the grammars of the [core language](https://github.com/The-Dawwctor/sempre-robot/blob/master/interactive/dal.grammar) and the [NRC specific language](https://github.com/The-Dawwctor/sempre-robot/blob/master/interactive/robot.grammar)
 * the [server side code](https://github.com/The-Dawwctor/sempre-robot)

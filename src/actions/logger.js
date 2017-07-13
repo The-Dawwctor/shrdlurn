@@ -1,6 +1,4 @@
-import io from "socket.io-client"
 import Constants from "constants/actions"
-import { COMMUNITY_SERVER_URL } from "constants/strings"
 import { setStore, getStore, genSid } from "helpers/util"
 
 function sendSocket(getState, event, payload) {
@@ -48,42 +46,6 @@ function sendSocket(getState, event, payload) {
 }
 
 const Actions = {
-  open: () => {
-    return (dispatch, getState) => {
-      const { sessionId } = getState().user
-
-      const socket = io(COMMUNITY_SERVER_URL)
-      socket.on("connect", () => {
-        console.log("logging socket connected")
-
-        sendSocket(getState, "session", { "sessionId": sessionId })
-
-        sendSocket(getState, "getscore", {})
-
-        sendSocket(getState, "getstructcount", {})
-
-        /* Query for a new score every 45 seconds */
-        setInterval(() => sendSocket(getState, "getscore", {}), 45000)
-
-        dispatch({
-          type: Constants.OPEN_LOGGING_SOCKET,
-          socket: socket
-        })
-      })
-
-      socket.on("definitions", (e) => {
-        const definitions = {}
-        for (const definition of e.definitions)
-          definitions[definition.symbol] = definition
-
-        dispatch({
-          type: Constants.LOAD_DEFINITIONS,
-          definitions
-        })
-      })
-    }
-  },
-
   setStructureId: (e) => {
     return (dispatch, getState) => {
       /* Set structure Id */
@@ -126,23 +88,6 @@ const Actions = {
       const payload = { type: e.type, msg: e.msg }
 
       sendSocket(getState, "log", payload)
-    }
-  },
-
-  getUser: () => {
-    return (dispatch, getState) => {
-      let { token } = getState().user
-
-      if (!token) {
-        /* Check localStorage because reduxPersist's rehydration is not
-         * guaranteed to have finished when this function is called */
-        const userStorage = getStore("reduxPersist:user")
-        if (userStorage.token)
-          token = userStorage.token
-      }
-
-      if (token)
-        sendSocket(getState, "get_user", { token })
     }
   },
 

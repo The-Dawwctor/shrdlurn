@@ -6,7 +6,7 @@ const Help = () => (
   <div className="Help">
     <h2>Help</h2>
     <hr/>
-    <p>Here are some simple examples to help you out in building your structures..</p>
+    <p>Here are some simple examples to help you control your robot.</p>
     <ul>
       <li>
         <strong>Directions:</strong>
@@ -25,13 +25,12 @@ const Help = () => (
       <li>
         <strong>Operators:</strong>
         <ul>
-          <li>has, of, not, and, or</li>
-          <li>+, -</li>
+          <li>has, of, not, and, or, +, -</li>
         </ul>
       </li>
       <li>
         <strong>Blocks:</strong> all, none, this, previous, origin
-                  </li>
+      </li>
 
       <li>
         <strong>Simple actions:</strong> select, add, remove, move
