@@ -39,7 +39,7 @@ const Help = () => (
 
       <li>
         <strong>Control:</strong> repeat, ;, [ ], &#123; &#125;, if, while, foreach, isolate
-                  </li>
+      </li>
 
       <li>
         <strong>Simple examples:</strong>
@@ -76,19 +76,6 @@ const Help = () => (
           <li> add red;  &#123; select right; update color color of left &#125;  </li>
         </ul>
       </li>
-
-      <li>
-        <strong>Possible extensions</strong>
-        <ul>
-          <li>move left 3 times</li>
-          <li>do 3 times add red top</li>
-          <li>move left until red</li>
-          <li>red cube size 3</li>
-          <li>surround this cube</li>
-          <li>build big shrdlurn</li>
-        </ul>
-      </li>
-
     </ul>
   </div>
 )

@@ -25,11 +25,7 @@ class Information extends Component {
 		You can now use
 	    "add green left 5 times". </li>
 		<li>Alternatively, you can use the mouse to select to select some previous commands and define them.</li>
-		</ul>
-		<h2>More information</h2>
-		<ul>
-		<li><a target="_blank" href={DOCUMENTATION_URL}>Documentation</a>: core language, the setup, etc </li>
-		<li><a target="_blank" href="https://arxiv.org/abs/1704.06956">Our paper</a></li>
+		<li><a target="_blank" href={DOCUMENTATION_URL}>Documentation</a>: core language, setup, etc </li>
 		</ul>
 		</div></div>
 	)
