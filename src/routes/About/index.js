@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import { connect } from "react-redux"
 import { Link } from "react-router"
 import "./styles.css"
 import { DOCUMENTATION_URL } from "constants/strings"
@@ -37,9 +36,4 @@ class Information extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({
-    structs: state.logger.structs,
-    utterances: state.logger.utterances,
-})
-
-export default connect(mapStateToProps)(Information)
+export default Information

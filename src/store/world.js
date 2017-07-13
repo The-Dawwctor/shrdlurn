@@ -1,14 +1,14 @@
 import Constants from "constants/actions"
 import { STATUS } from "constants/strings"
 
+// TODO: CHANGE TO INCLUDE MORE GENERALITY FOR INITIAL STATE
 const initialState = {
-    history: [{ text: "initial", value: [{ x: 0, y: 0, z: 0, color: "fake", attract: false, names: ["S"] }], formula: "(initial)" }],
+    history: [{ text: "initial", value: [{ names: ["S", "Point"], x: 0, y: 0, z: 0, color: "fake", attract: false }], formula: "(initial)" }],
     responses: [],
     current_history_idx: -1,
     status: STATUS.TRY,
     query: "",
     defining: false,
-    exampleQuery: "add red 3 times",
     defineN: null
 }
 

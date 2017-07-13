@@ -1,18 +1,22 @@
 import { SEMPRE_SERVER_URL } from "constants/strings"
 
 function formatValue(value) {
-  if (typeof value === "undefined") return "";
-  const valueArray = JSON.parse(value);
-    return valueArray.map((c) => (
-	{
-	x: c[0],
-	y: c[1],
-	z: c[2],
-	color: c[3],
-	attract: c[4],
-	names: c[5],
-    }
-  ));
+    if (typeof value === "undefined") return "";
+    const valueArray = JSON.parse(value);
+    let formatArray = valueArray.map(c => {
+	let result = {
+	    names: c[0],
+	    x: c[1],
+	    y: c[2],
+	    z: c[3],
+	    color: c[4]
+	}
+	if (c[0].includes("PEPoint")) {
+	    result.attract = c[5];
+	}
+	return result;
+    });
+    return formatArray;
 }
 
 function combine(vsTmp, v) {

@@ -1,10 +1,9 @@
 import React, { PropTypes } from "react"
 import { Link } from "react-router"
-import { connect } from "react-redux"
 
 import "./styles.css"
 
-const Header = ({ query, signedIn, sessionId, email, dispatch }) => (
+const Header = ({ query }) => (
   <div className="Header">
     <div className="Header-logo">
       <span>NLP Robot Control</span>
@@ -24,10 +23,4 @@ Header.propTypes = {
   query: PropTypes.object
 }
 
-const mapStateToProps = (state) => ({
-  sessionId: state.user.sessionId,
-  email: state.user.email,
-  signedIn: state.user.signedIn
-})
-
-export default connect(mapStateToProps)(Header)
+export default Header

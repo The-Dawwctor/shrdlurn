@@ -34,10 +34,7 @@ const Help = () => (
                   </li>
 
       <li>
-        <strong>Simple actions:</strong>
-        <ul>
-          <li>select, add, remove, move</li>
-        </ul>
+        <strong>Simple actions:</strong> select, add, remove, move
       </li>
 
       <li>

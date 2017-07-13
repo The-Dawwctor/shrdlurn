@@ -15,14 +15,12 @@ function stateIncludes(state, obj) {
 	if (c.x === obj.x &&
 	    c.y === obj.y &&
 	    c.z === obj.z &&
-	    c.attract === obj.attract &&
 	    c.color === obj.color) {
 	    return true;
 	}
     }
     return false;
 }
-
 
 /* Will return the state with the "_new" name attached to the difference between
  * the prev state and the next state */
@@ -32,28 +30,6 @@ export const computeDiff = (prev, next) => {
 
     return difference.map((c) => (Object.assign({}, c, { names: [...c.names, "_new"] })))
 	.concat(intersection)
-}
-
-/* Will return true if the two states are equal; false otherwise */
-export const computeEquality = (struct1, struct2) => {
-    const a = sortBlocks(struct1).filter((b) => b.color !== "Anchor");
-    const b = sortBlocks(struct2).filter((b) => b.color !== "Anchor");
-
-    if (a === b) return true;
-    if (a == null || b == null) return false;
-    if (a.length !== b.length) return false;
-
-    for (let i = 0; i < a.length; ++i) {
-	if (a[i].x !== b[i].x ||
-	    a[i].y !== b[i].y ||
-	    a[i].z !== b[i].z ||
-	    a[i].attract !== b[i].attract ||
-	    a[i].color !== b[i].color) {
-	    return false;
-	}
-    }
-
-    return true;
 }
 
 class Blocks extends React.Component {

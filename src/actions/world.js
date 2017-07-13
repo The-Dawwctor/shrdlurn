@@ -11,7 +11,7 @@ function sendContext(history, current_history_idx, sessionId) {
   if (history.length > 0) {
     const idx = current_history_idx >= 0 && current_history_idx < history.length ? current_history_idx : history.length - 1
     const currentState = history[idx].value
-    const prevState = JSON.stringify(JSON.stringify(currentState.map(c => ([c.x, c.y, c.z, c.color, c.attract, c.names]))))
+      const prevState = JSON.stringify(JSON.stringify(currentState.map(c => ([c.names, c.x, c.y, c.z, c.color, c.attract]))))
     contextCommand = `(:context ${prevState})`
   }
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from "react-redux"
 import Actions from "actions/user"
 import LoggerActions from "actions/logger"
 import Logger from "actions/logger"
@@ -35,4 +34,4 @@ class Layout extends Component {
   }
 }
 
-export default connect()(Layout)
+export default Layout

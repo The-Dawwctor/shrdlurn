@@ -35,7 +35,6 @@ export function blocksEqual(struct1, struct2) {
         a[i].y !== b[i].y ||
         a[i].z !== b[i].z ||
         a[i].color !== b[i].color ||
-	a[i].attract !== b[i].attract ||
         a[i].names !== b[i].names) {
       return false;
     }
