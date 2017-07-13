@@ -7,17 +7,25 @@ import { getStore } from "../"
 import { STATUS } from "constants/strings"
 
 function sendContext(history, current_history_idx, sessionId) {
-  let contextCommand = "(:context)"
-  if (history.length > 0) {
-    const idx = current_history_idx >= 0 && current_history_idx < history.length ? current_history_idx : history.length - 1
-    const currentState = history[idx].value
-      const prevState = JSON.stringify(JSON.stringify(currentState.map(c => ([c.names, c.x, c.y, c.z, c.color, c.attract]))))
-    contextCommand = `(:context ${prevState})`
-  }
+    let contextCommand = "(:context)"
+    if (history.length > 0) {
+	const idx = current_history_idx >= 0 && current_history_idx < history.length ? current_history_idx : history.length - 1
+	const currentState = history[idx].value
+	const prevState = JSON.stringify(JSON.stringify(currentState.map(sendContextType)))
+	contextCommand = `(:context ${prevState})`
+    }
 
-  const contextCmds = { q: contextCommand, sessionId: sessionId }
+    const contextCmds = { q: contextCommand, sessionId: sessionId }
 
-  return SEMPREquery(contextCmds)
+    return SEMPREquery(contextCmds)
+}
+
+function sendContextType(item) {
+    let info = [item.names, item.x, item.y, item.z, item.color]
+    if (item.names.includes("PEPoint")) {
+	info.push(item.attract)
+    }
+    return info
 }
 
 const Actions = {
