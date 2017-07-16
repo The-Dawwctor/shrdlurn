@@ -2,7 +2,7 @@ import Constants from "constants/actions"
 import { STATUS } from "constants/strings"
 
 const initialState = {
-    history: [{ text: "initial", value: [{ names: ["S", "Point"], x: 0, y: 0, z: 0, color: "fake" }], formula: "(initial)" }],
+    history: [{ text: "initial", value: [{ names: ["S", "Point"], x: 0, y: 0, z: 0, rotate: [0.0, 0.0, 0.0, 0.0], color: "fake" }], formula: "(initial)" }],
     responses: [],
     current_history_idx: -1,
     status: STATUS.TRY,

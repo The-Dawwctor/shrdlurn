@@ -9,10 +9,11 @@ function formatValue(value) {
 	    x: c[1],
 	    y: c[2],
 	    z: c[3],
-	    color: c[4]
+	    rotate: c[4],
+	    color: c[5]
 	}
 	if (c[0].includes("PEPoint")) {
-	    result.attract = c[5];
+	    result.attract = c[6];
 	}
 	return result;
     });

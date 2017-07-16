@@ -37,12 +37,6 @@ class Build extends Component {
 	this.props.dispatch(LoggerActions.setStructureId())
     }
 
-    // componentWillReceiveProps(nextProps) {
-    //   if (this.props.world.status === "accept" && nextProps.world.status === "define") {
-    //     this.handleQuery(this.props.world.query)
-    //   }
-    // }
-
     componentDidUpdate(prevProps) {
 	/* Whenever there is a status change, reset the selected response */
 	if (prevProps.status !== this.props.status)
