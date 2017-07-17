@@ -6,14 +6,15 @@ function formatValue(value) {
     let formatArray = valueArray.map(c => {
 	let result = {
 	    names: c[0],
-	    x: c[1],
-	    y: c[2],
-	    z: c[3],
-	    rotate: c[4],
-	    color: c[5]
+	    id: c[1],
+	    x: c[2],
+	    y: c[3],
+	    z: c[4],
+	    rotate: c[5],
+	    color: c[6]
 	}
 	if (c[0].includes("PEPoint")) {
-	    result.attract = c[6];
+	    result.attract = c[7];
 	}
 	return result;
     });
