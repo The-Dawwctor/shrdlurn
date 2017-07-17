@@ -1,9 +1,7 @@
 import Constants from "constants/actions"
 
 const initialState = {
-    sessionId: "deadbeef",
-    task: "world",
-    token: null
+    sessionId: "deadbeef"
 }
 
 export default function reducer(state = initialState, action = {}) {

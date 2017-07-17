@@ -3,13 +3,12 @@ import Constants from "constants/actions"
 const initialState = {
     socket: null,
     structs: "loading",
-    lastValue: "",
     utterances: {},
     sid: "1",
     definitions: {}
 }
 
-/* Prune the number of utts displayed to under 10, ordered by latest timestamp */
+/* Prune number of utts displayed to under 10, ordered by latest timestamp */
 function pruneUtts(utts) {
     if (Object.keys(utts).length < 10) return utts
 

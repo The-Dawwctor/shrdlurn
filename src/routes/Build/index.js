@@ -19,7 +19,6 @@ class Build extends Component {
 	historyLen: PropTypes.number,
 	responses: PropTypes.array,
 	dispatch: PropTypes.func,
-	task: PropTypes.string
     }
 
     constructor(props) {
@@ -109,7 +108,7 @@ class Build extends Component {
     }
 
     handleShiftClick() {
-	// TODO: open up the latest define
+	// TODO: open up latest define
 	// const { history, defining } = this.props.world
 	// if (defining) return
 	// /* Find last pin to define */
@@ -124,8 +123,8 @@ class Build extends Component {
     render() {
 	const { status, responses, history, current_history_idx} = this.props
 
-	/* The current state should be the history element at the last position, or
-	 * the one selected by the current_history_idx */
+	/* Current state should be  history element at  last position, or
+	 * one selected by current_history_idx */
 	let idx = current_history_idx >= 0 ? current_history_idx : history.length - 1
 	if (idx > history.length - 1) idx = history.length - 1
 	let currentState = history[idx].value
@@ -175,7 +174,6 @@ const mapStateToProps = (state) => ({
     status: state.world.status,
     historyLen: state.world.history.length,
     history: state.world.history,
-    task: state.user.task,
     responses: state.world.responses,
     defineN: state.world.defineN,
     current_history_idx: state.world.current_history_idx

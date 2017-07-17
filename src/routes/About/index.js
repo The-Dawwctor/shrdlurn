@@ -19,12 +19,12 @@ class Information extends Component {
 		<h2>Get started</h2>
 		<ul>
 		<li> Go to the <Link to="/build">build page</Link> and type "repeat 3 [add red top]". </li>
-		<li>NRC always understands the <a target="_blank" href={DOCUMENTATION_URL}>core language</a>, which has a fixed syntax like other programming languages.</li>
+		<li> NRC always understands the <a target="_blank" href={DOCUMENTATION_URL}>core language</a>, which has a fixed syntax.</li>
 		<li> You can define
-	    "add red top 3 times" by clicking the "Define this" button and then enter "repeat 3 [add red top]".
+	    "add red top 3 times" by clicking the "Define this" button and entering "repeat 3 [add red top]".
 		You can now use
 	    "add green left 5 times". </li>
-		<li>Alternatively, you can use the mouse to select to select some previous commands and define them.</li>
+		<li>Alternatively, use the mouse to select some previous commands and define them.</li>
 		<li><a target="_blank" href={DOCUMENTATION_URL}>Documentation</a>: core language, setup, etc </li>
 		</ul>
 		</div></div>

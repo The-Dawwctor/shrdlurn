@@ -1,8 +1,6 @@
 /* Server URLs */
 const DEFAULT_SEMPRE_SERVER_URL = "http://localhost:8410"
-const DEFAULT_COMMUNITY_SERVER_URL = "http://localhost:8403"
 export const SEMPRE_SERVER_URL = process.env.REACT_APP_SEMPRE_SERVER ? process.env.REACT_APP_SEMPRE_SERVER : DEFAULT_SEMPRE_SERVER_URL
-export const COMMUNITY_SERVER_URL = process.env.REACT_APP_COMMUNITY_SERVER ? process.env.REACT_APP_COMMUNITY_SERVER : DEFAULT_COMMUNITY_SERVER_URL
 
 /* Header URLs */
 export const DOCUMENTATION_URL = "https://github.com/The-Dawwctor/shrdlurn-robot/blob/master/NRC.md"
