@@ -23,6 +23,8 @@ function sendContextType(item) {
     let info = [item.names, item.id, item.x, item.y, item.z, item.rotate, item.color]
     if (item.names.includes("PEPoint")) {
 	info.push(item.attract)
+    } else if (item.names.includes("OpPoint")) {
+	info.push(item.frame)
     }
     return info
 }

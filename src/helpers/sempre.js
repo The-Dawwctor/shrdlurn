@@ -15,6 +15,8 @@ function formatValue(value) {
 	}
 	if (c[0].includes("PEPoint")) {
 	    result.attract = c[7];
+	} else if (c[0].includes("OpPOint")) {
+	    result.frame = c[7];
 	}
 	return result;
     });
