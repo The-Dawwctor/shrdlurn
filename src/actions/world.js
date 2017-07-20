@@ -137,7 +137,7 @@ const Actions = {
       const selected = responses[selectedResp]
 
       if (selected.error) {
-        alert("You can't accept a response with an error in it. Please accept another response or try a different query.")
+        alert("You can't accept erroring responses. Please accept another response or try a different query.")
         dispatch({
           type: Constants.SET_STATUS,
           status: STATUS.TRY
@@ -179,7 +179,7 @@ const Actions = {
       const { history, query } = getState().world
 
       if (idx === history.length - 1) {
-        alert("You cannot define the first history item because you must have something to define it as!")
+        alert("You can't define the first history item since you need something to define it as!")
         return
       }
       const text = history[idx] !== undefined ? history[idx].text : ""
