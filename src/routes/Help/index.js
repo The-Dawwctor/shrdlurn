@@ -6,7 +6,7 @@ const Help = () => (
   <div className="Help">
     <h2>Help</h2>
     <hr/>
-	<p>Some simple examples to help you control your robot:</p>
+	<p>Some examples:</p>
     <ul>
       <li>
         <strong>Directions:</strong>

@@ -17,7 +17,7 @@ const Routes = ({ history }) => (
 )
 
 Routes.propTypes = {
-  /* History object for the router to interact with (e.g. hashHistory) */
+  /* History object for router to interact with (e.g. hashHistory) */
   history: PropTypes.object
 }
 

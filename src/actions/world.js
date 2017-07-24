@@ -137,7 +137,7 @@ const Actions = {
       const selected = responses[selectedResp]
 
       if (selected.error) {
-        alert("You can't accept erroring responses. Please accept another response or try a different query.")
+        alert("Can't accept error response. Accept another response or try different query.")
         dispatch({
           type: Constants.SET_STATUS,
           status: STATUS.TRY
@@ -179,7 +179,7 @@ const Actions = {
       const { history, query } = getState().world
 
       if (idx === history.length - 1) {
-        alert("You can't define the first history item since you need something to define it as!")
+        alert("Can't define 1st history item. Need something to define it as.")
         return
       }
       const text = history[idx] !== undefined ? history[idx].text : ""
@@ -197,12 +197,12 @@ const Actions = {
 
       const sempreQuery = `(${mode} "${defineAs}" ${JSON.stringify(JSON.stringify(defineHist))})`
 
-      /* Submit the define command */
+      /* Submit define command */
       SEMPREquery({ q: sempreQuery, sessionId: sessionId })
         .then((r) => {
           if (r.lines && r.lines.length > 0) {
-            /* Display errors and quit if there errors */
-            alert(`There were error(s) in this definition: ${r.lines.join(", ")}`)
+            /* Display errors and quit if errors */
+            alert(`Error(s) in definition: ${r.lines.join(", ")}`)
             return
           }
 

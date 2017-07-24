@@ -10,7 +10,7 @@ const makeRootReducer = () => {
 	routing: routerReducer, // routes
 	world, // relating to the setting and user interaction
 	user, // relating to the user account
-	logger // relating to the community server
+	logger // relating to logging
     })
 }
 

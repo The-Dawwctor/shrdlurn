@@ -107,19 +107,6 @@ class Build extends Component {
 	this.props.dispatch(Actions.closeDefine())
     }
 
-    handleShiftClick() {
-	// TODO: open up latest define
-	// const { history, defining } = this.props.world
-	// if (defining) return
-	// /* Find last pin to define */
-	// const idx = history.slice().reverse().findIndex(h => h.type === "pin")
-	// if (idx !== -1) {
-	//   this.props.dispatch(Actions.define(history.length - 1 - idx))
-	// } else {
-	//   alert("shift-enter is for defining, you are not in defining mode")
-	// }
-    }
-
     render() {
 	const { status, responses, history, current_history_idx} = this.props
 
@@ -144,7 +131,6 @@ class Build extends Component {
 		<History />
 		<CommandBar
             onClick={(query) => this.handleQuery(query)}
-            handleShiftClick={() => this.handleShiftClick()}
             onUp={() => this.upSelected()}
             onDown={() => this.downSelected()} />
 		<div className="Build-status">

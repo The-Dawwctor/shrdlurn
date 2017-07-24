@@ -34,7 +34,7 @@ class CommandBar extends Component {
     if (this.props.query.length === 0) {
       /* Alert informatively if we are in define mode */
       if (this.props.status === "define")
-        alert("You cannot define something as an empty string.")
+        alert("You can't define something as an empty string.")
       return
     }
 
@@ -48,13 +48,8 @@ class CommandBar extends Component {
 
   handleKeyDown(e) {
     if (e.keyCode === 13) {
-      if (e.shiftKey) {
-        /* If we hit Shift+Enter, we want to define the head */
-        this.handleShiftClick()
-      } else {
         /* If we hit Enter, it is an alias to clicking the button */
         this.handleClick()
-      }
     } else if (e.keyCode === 40) {
       /* Up arrow key is alias for clicking up */
       e.preventDefault()
