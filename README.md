@@ -1,5 +1,4 @@
-# Interactive semantic parsing client for robot control
-Currently in progress, and focuses on robot control.
+# Interactive semantic parsing client for robot control (NRC)
 
 ## Information
 - The parser relies on [SEMPRE](https://github.com/percyliang/sempre) with modifications for actions and interaction in [Sida Wang's fork](https://github.com/sidaw/sempre-interactive). The parser additionally relies on further modifications for adaptations to a specific robot control environment in [my fork](https://github.com/The-Dawwctor/sempre-robot).
@@ -19,7 +18,6 @@ To run locally with hot reload, run `yarn start`.
 By default, the client tries to connect to the servers specified in "constants/strings.js". But, if you wish the client to connect to a different instance of SEMPRE or the community server, you can set environment variables to override the URLs they try to connect. The following environmental variables will tell the client which server to connect to:
 
 - `REACT_APP_SEMPRE_SERVER` specifies the URL of the running SEMPRE instance.
-- `REACT_APP_COMMUNITY_SERVER` specifies the URL of the (optionally) running community server to support logging and community features.
 
 You can either specify these in a `.env` file or in the CLI command like so, `REACT_APP_SEMPRE_SERVER=localhost:8410 yarn start`
 
@@ -37,7 +35,7 @@ It is simple to deploy to Github Pages. Just set the "homepage" variable in "pac
 
 All javascript and CSS source code is the "src" folder. Generally, anything that is a route is in "src/routes". Anything that is not a route, but that handles interacts directly with data in the store (i.e. is wrapped with Redux's connect function) is in "src/containers". Anything that does not get data directly from the store will reside in "src/components".
 
-The setting (BlocksWorld) lives in the "src/setting". Here is the only logic that is blocks world dependent.
+The setting (BlocksWorld) lives in the "src/setting". Here is the only logic that is blocks world dependent for the robot world representation.
 
 ### Build Your Own Setting!
 
