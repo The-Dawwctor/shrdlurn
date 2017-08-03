@@ -7,6 +7,11 @@
 
 #### Installation
 
+Make sure you have yarn installed. Follow the instruction at https://yarnpkg.com/lang/en/docs/install/
+
+Additionally, run the following command
+    sudo apt-get install nodejs
+
 To install, simply run `yarn install`. This will install all the needed node dependencies.
 
 #### Development
@@ -30,6 +35,9 @@ Run `yarn build` to build a production version of the app. The build will be sav
 #### Deployment
 
 It is simple to deploy to Github Pages. Just set the "homepage" variable in "package.json", and then run `yarn deploy`.
+
+## Important Note
+If you are unable to input commands into the command line and send them succesfully, you will have to enable unsafe scripts on your web browser for the javascript to work.
 
 ## Organization
 
