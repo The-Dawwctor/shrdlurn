@@ -21,8 +21,8 @@ function sendContext(history, current_history_idx, sessionId) {
 
 function sendContextType(item) {
     let info = [item.names, item.id, item.x, item.y, item.z, item.rotate, item.color]
-    if (item.names.includes("PEPoint")) {
-	info.push(item.attract)
+    if (item.names.includes("Goal")) {
+	info.push(item.order)
     } else if (item.names.includes("OpPoint")) {
 	info.push(item.frame)
     }
