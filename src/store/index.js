@@ -8,8 +8,8 @@ import logger from './logger'
 const makeRootReducer = () => {
     return combineReducers({
 	routing: routerReducer, // routes
-	world, // relating to the setting and user interaction
-	user, // relating to the user account
+	world, // relating to setting and user interaction
+	user, // relating to user account
 	logger // relating to logging
     })
 }

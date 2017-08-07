@@ -4,7 +4,7 @@ import { persistStore, autoRehydrate } from 'redux-persist'
 import makeRootReducer from '.'
 
 export default (initialState = {}) => {
-    /* Build the thunk middleware to enable async redux actions */
+    /* Build thunk middleware to enable async redux actions */
     const middleware = [thunk]
 
     /* Enhance the store with the autoRehydrate enhancer to support redux-persist */
@@ -28,7 +28,7 @@ export default (initialState = {}) => {
 	)
     )
 
-    /* Persist the world reducer so that a user's progress can be saved despite
+    /* Persist world reducer so that user's progress can be saved despite
      * reloads (stores this information to localStorage on each update) */
     persistStore(store, { whitelist: ['world', 'user'] })
 

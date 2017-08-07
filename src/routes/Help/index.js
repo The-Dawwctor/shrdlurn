@@ -6,7 +6,6 @@ const Help = () => (
   <div className="Help">
     <h2>Help</h2>
     <hr/>
-	<p>Some examples:</p>
     <ul>
       <li>
         <strong>Directions:</strong>
@@ -16,11 +15,7 @@ const Help = () => (
         </ul>
       </li>
       <li>
-        <strong>Colors:</strong>
-        <ul>
-          <li>red, orange, yellow, green, blue</li>
-          <li>white, black, pink, brown</li>
-        </ul>
+        <strong>Colors:</strong> Any CSS colors
       </li>
       <li>
         <strong>Operators:</strong>
@@ -48,7 +43,7 @@ const Help = () => (
           <li>repeat 3 [add yellow top]</li>
           <li>select top</li>
           <li>select has color red</li>
-          <li>move top, move bot</li>
+          <li>move top 1, move bot 3</li>
         </ul>
       </li>
 
