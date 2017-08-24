@@ -8,27 +8,26 @@ const Help = () => (
     <hr/>
     <ul>
       <li>
-        <strong>Directions:</strong>
+        <strong>Directions:</strong> [dir]: top, bot, left, right, front, back
         <ul>
-          <li>[dir]: top, bot, left, right, front, back</li>
           <li>very [dir] of ...</li>
         </ul>
       </li>
       <li>
-        <strong>Colors:</strong> Any CSS colors
+        <strong>Colors:</strong> [color]: Any CSS colors
       </li>
       <li>
-        <strong>Operators:</strong>
-        <ul>
-          <li>has, of, not, and, or, +, -</li>
-        </ul>
+        <strong>Numbers:</strong> [number]: Any natural number
+      </li>
+      <li>
+        <strong>Operators:</strong> has, of, not, and, or, +, -, *, /
       </li>
       <li>
         <strong>Blocks:</strong> all, none, this, previous, origin
       </li>
 
       <li>
-        <strong>Simple actions:</strong> select, add, remove, move
+        <strong>Simple actions:</strong> add [color] x y z, move [dir] [number]
       </li>
 
       <li>
@@ -38,9 +37,8 @@ const Help = () => (
       <li>
         <strong>Simple examples:</strong>
         <ul>
-          <li>add red top</li>
-          <li>add yellow</li>
-          <li>repeat 3 [add yellow top]</li>
+          <li>add yellow 8 4 2</li>
+          <li>move right 3</li>
           <li>select top</li>
           <li>select has color red</li>
           <li>move top 1, move bot 3</li>
@@ -50,11 +48,10 @@ const Help = () => (
       <li>
         <strong>More examples:</strong>
         <ul>
-          <li>repeat 3 add red top</li>
           <li>select top of left of this </li>
           <li>select this or top of left of this</li>
           <li>select all and not this</li>
-          <li>repeat 3 [add red; select top]</li>
+          <li>repeat 3 [add red ; select top]</li>
         </ul>
       </li>
 
