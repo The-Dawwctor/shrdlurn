@@ -9,12 +9,11 @@ class Information extends Component {
             <div className="About">
             <div>
             <p>NRC is a command interface for controlling robots.
-            It is an experimental platform for developing techniques
-            allowing computers to parse a naturalized programming language.
-            Our goal is to allow people access
-            to the power of programming languages
-            without conforming to their uncompromising syntax.
-            NRC does this by learning from its user interactively starting from a precise programming language.
+            It's an experimental platform for developing techniques
+            allowing computers to parse naturalized programming languages.
+            Our goal is to allow people access to the power of programming languages
+            without conforming to uncompromising syntax.
+            NRC does this by interactively learning from its user starting from a precise programming language.
             </p>
             <h2>Get started</h2>
             <ul>
@@ -25,6 +24,7 @@ class Information extends Component {
             You can now use
             "add ball 2 3 4". </li>
             <li>Alternatively, use the mouse to select some previous commands and define them.</li>
+            <li>Use the "send" command to send all the typed commands to the server.</li>
             <li><a target="_blank" href={DOCUMENTATION_URL}>Documentation</a>: core language, setup, etc </li>
             </ul>
             </div></div>
